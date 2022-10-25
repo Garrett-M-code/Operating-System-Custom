@@ -1,10 +1,8 @@
 #!/bin/bash
 
-freebsd-update fetch
-freebsd-update install
-
 pkg update
 
 pkg install sudo
 
-pkg install vim
+cd /usr/ports/editors/vim/
+make install clean
