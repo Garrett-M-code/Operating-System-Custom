@@ -23,6 +23,16 @@ pkg install -y vim
 # Installing dependencies for future packages
 pkg install -y libgee
 pkg install -y cmake
+pkg install -y vala 
+pkg install -y gstreamer1-libav 
+pkg install -y gtk3 
+pkg install -y glib 
+pkg install -y libgee 
+pkg install -y webkit2-gtk3 
+pkg install -y clutter-gtk3 
+pkg install -y clutter 
+pkg install -y clutter-gst3 
+pkg install -y bash
 
 echo "Configuring Components"
 # Configures the newly installed packages
@@ -61,9 +71,6 @@ sysrc sddm_enable="YES"
 echo "Installing Desktop Envioronment"
 # Installs the custom desktop environment
 # Installing Komorebi for desktop wallpapers
-
-cmake vala gstreamer1-libav gtk3 glib libgee webkit2-gtk3 clutter-gtk3 clutter clutter-gst3 bash
-
 git clone https://github.com/SrWither/KomorebiBSD.git
 cd KomorebiBSD
 mkdir build && cd build
@@ -78,6 +85,37 @@ pkg install -y polybar
 
 #Installs ulauncher (app launcher)
 pkg install -y ulauncher
+
+# Installing thunar
+pkg install -y thunar
+
+# Installing an archiver
+pkg install -y xarchiver
+
+# Installing a resource manager
+pkg install -y mate-system-monitor
+
+# Installing a text editor
+pkg install -y kate
+
+# Installing a terminal emmulator
+pkg install -y roxterm
+
+# Installing a media player
+pkg install -y parole
+pkg install -y mpv
+
+# Installing a audio player
+pkg install -y rhythmbox
+
+# Installing a voice recorder
+pkg install -y audacity
+
+# Installer image viewer
+pkg install -y feh
+
+# Install a IDE
+pkg install -y geany
 
 echo "Installing external components"
 # Installing external packages for DE
