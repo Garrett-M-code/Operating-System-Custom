@@ -1,6 +1,7 @@
 #!/usr/local/bin/bash
 
 echo "Starting the installer!"
+cd ..
 
 echo "Installing Updates"
 # Installs updates
@@ -21,6 +22,7 @@ pkg install -y vim
 
 # Installing dependencies for future packages
 pkg install -y libgee
+pkg install -y cmake
 
 echo "Configuring Components"
 # Configures the newly installed packages
@@ -42,9 +44,14 @@ pw groupmod video -m remax || pw groupmod wheel -m remax
 
 echo "Installing Window Manager"
 # Installs the Window Manager
-pkg install -y x11/kde-baseapps
-printf "proc           /proc       procfs  rw  0   0" >> 'etc/fstab/'
-sysrc dbus_enable="YES"
+pkg install plasma5-kwin
+
+
+
+
+#pkg install -y x11/kde-baseapps
+#printf "proc           /proc       procfs  rw  0   0" >> 'etc/fstab/'
+#sysrc dbus_enable="YES"
 
 echo "Installing and configuring SDDM"
 # Installs and configures the login screen
@@ -54,6 +61,9 @@ sysrc sddm_enable="YES"
 echo "Installing Desktop Envioronment"
 # Installs the custom desktop environment
 # Installing Komorebi for desktop wallpapers
+
+cmake vala gstreamer1-libav gtk3 glib libgee webkit2-gtk3 clutter-gtk3 clutter clutter-gst3 bash
+
 git clone https://github.com/SrWither/KomorebiBSD.git
 cd KomorebiBSD
 mkdir build && cd build
@@ -72,10 +82,14 @@ pkg install -y ulauncher
 echo "Installing external components"
 # Installing external packages for DE
 pkg install -y firefox
+pkg install -y libreoffice
 
 echo "Configuring external components"
 # Configuring the newly installed DE packages
-pkg install -y libreoffice
+chmod +x autostart.sh 
+mv /autostart.sh ~/bin
+
+mv custom_de.desktop ~/usr/share/xsessions/
 
 echo "Installing optional components"
 # Installing optional user wanted Components
