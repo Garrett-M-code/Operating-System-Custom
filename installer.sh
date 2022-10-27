@@ -20,24 +20,6 @@ pkg install -y sudo
 # Installing VIM
 pkg install -y vim
 
-# Installing dependencies for future packages
-pkg install -y libgee
-pkg install -y cmake
-pkg install -y vala 
-pkg install -y gstreamer1-libav 
-pkg install -y gtk3 
-pkg install -y glib 
-pkg install -y libgee 
-pkg install -y webkit2-gtk3 
-pkg install -y clutter-gtk3 
-pkg install -y clutter 
-pkg install -y clutter-gst3 
-pkg install -y bash
-
-echo "Configuring Components"
-# Configures the newly installed packages
-
-
 echo "Installing Xorg"
 # Installs the Xorg display environment
 pkg install -y xorg
@@ -51,6 +33,23 @@ mv /usr/local/etc/X11/xorg.conf ~/xorg.conf.localetc
 # Adds the remax user to nessacary groups
 echo "Adding user Remax to 3d acceleration"
 pw groupmod video -m remax || pw groupmod wheel -m remax
+
+echo "Configuring Components"
+# Configures the newly installed packages
+
+# Installing dependencies for future packages
+pkg install -y libgee
+pkg install -y cmake
+pkg install -y vala 
+pkg install -y gstreamer1-libav 
+pkg install -y gtk3 
+pkg install -y glib 
+pkg install -y libgee 
+pkg install -y webkit2-gtk3 
+pkg install -y clutter-gtk3 
+pkg install -y clutter 
+pkg install -y clutter-gst3 
+pkg install -y bash
 
 echo "Installing Window Manager"
 # Installs the Window Manager
