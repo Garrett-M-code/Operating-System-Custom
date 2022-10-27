@@ -53,7 +53,7 @@ pkg install -y bash
 
 echo "Installing Window Manager"
 # Installs the Window Manager
-pkg install plasma5-kwin
+pkg install -y plasma5-kwin
 
 
 
